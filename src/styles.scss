@@ -11,6 +11,11 @@ body{
 *::after {
   box-sizing: border-box;
 }
+input{
+  -webkit-appearance: none;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+}
 .mt-small{
   margin-top: 16px;
 }
