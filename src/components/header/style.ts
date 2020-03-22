@@ -19,6 +19,9 @@ export const Header = Styled.header`
   background: #106cc8;
   padding: 32px;
   color: white;
+  @media (max-width: 480px) {
+    padding: 32px 16px;
+  }
 `;
 export const Search = Styled.input`
   background: transparent;
@@ -37,6 +40,12 @@ export const Search = Styled.input`
   &:focus{
     outline: none;
   }
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    &::placeholder{
+      font-size: 1.1rem;
+    }
+  }
 `;
 export const SectionFurnitrueStyle = Styled.div`
   position: relative;
@@ -45,9 +54,9 @@ export const SearchFurniture = Styled.input`
   ${Input};
 `;
 export const SectionCollapse = Styled.div`
-  opacity: 0;
+  display: none;
   ${(props: {showCollapse: boolean}) => props.showCollapse && css`
-    opacity: 1;
+    display: block;
   `};
   position: absolute;
   background: white;
@@ -121,10 +130,26 @@ export const Checkbox = Styled.input`
     }
   }
 `;
-export const DeliveryTime = Styled.button`
+export const DeliveryTime = Styled.input`
   ${Input};
   display: flex;
   align-items: center;
   padding-top: 0;
   padding-bottom: 0;
+  cursor: pointer;
+`;
+export const Arrow = Styled.span`
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  transition: transform .3s;
+  ${(props: {active: boolean}) => props.active && css`
+    transform: rotate(-180deg);
+    transition: transform .3s;
+  `}
 `;

@@ -4,6 +4,7 @@ body{
   max-width: 720px;
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+  background: #fafafa;
 }
 *,
 *::before,
@@ -25,8 +26,12 @@ body{
   max-width: 100%;
   padding-right: 8px;
   padding-left: 8px;
-  &.size-50{
+  &.grid-card{
     max-width: 50%;
     min-width: 50%;
+    @media (max-width: 480px) {
+      max-width: 100%;
+      min-width: 100%;
+    }
   }
 }

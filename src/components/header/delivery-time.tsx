@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SectionFurnitrueStyle, DeliveryTime, SectionCollapse, ItemCollapse, Checkbox } from './style';
+import { SectionFurnitrueStyle, DeliveryTime, SectionCollapse, ItemCollapse, Checkbox, Arrow } from './style';
 
 const deliveryTime = ['1 Weeks', '2 Weeks', '1 Month', 'More'];
 interface DeliveryTimeModel{
@@ -7,7 +7,6 @@ interface DeliveryTimeModel{
 }
 export default (props: DeliveryTimeModel) => {
   const { getDeliveryTime } = props;
-  const [value, setValue] = React.useState("Delivery Time");
   const [showCollapse, setShowCollapse] = React.useState(false);
   const [focusCollapse, setFocusCollapse] = React.useState(false);
   
@@ -23,6 +22,8 @@ export default (props: DeliveryTimeModel) => {
 
   const DeliveryTimeProps = {
     id: "delivery-time",
+    defaultValue: "Delivery Time",
+    readOnly: true,
     onFocus: () => setShowCollapse(true),
     onBlur:() => {
       const search = document.getElementById("delivery-time");
@@ -36,7 +37,8 @@ export default (props: DeliveryTimeModel) => {
   }
   return (
     <SectionFurnitrueStyle>
-      <DeliveryTime {...DeliveryTimeProps}>{value}</DeliveryTime>
+      <DeliveryTime {...DeliveryTimeProps} />
+      <Arrow active={showCollapse}/>
       <SectionCollapse showCollapse={showCollapse} onMouseEnter={() => setFocusCollapse(true)} onMouseLeave={() => setFocusCollapse(false)}>
       {
           deliveryTime.map((item: string, key: number) => {

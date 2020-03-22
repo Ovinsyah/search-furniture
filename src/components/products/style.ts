@@ -1,5 +1,13 @@
 import Styled from 'styled-components';
 
+export const Section = Styled.section`
+  padding: 32px;
+  background: white;
+  @media (max-width: 480px) {
+    padding: 32px 16px;
+  }
+`;
+
 export const Card = Styled.div`
   padding: 24px;
   border-radius: 8px;

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ProductsModel } from '../../network/model';
 import Card from './card';
+import { Section } from './style';
 
 interface ProductModel{
   products: ProductsModel[];
@@ -54,16 +55,16 @@ export default (props: ProductModel) => {
     return null;
   });
   return (
-    <div className="mt-small">
+    <Section>
       <div className="grids">
         {
           deliveryProduct.map((product: ProductsModel, key: number ) => {
             return(
-              <div className="grid size-50" key={key} ><Card product={product} /></div>
+              <div className="grid grid-card" key={key} ><Card product={product} /></div>
             )
           })
         }
       </div>
-    </div>
+    </Section>
   );
 };
